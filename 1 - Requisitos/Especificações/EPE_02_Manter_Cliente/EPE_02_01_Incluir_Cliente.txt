@@ -1,0 +1,198 @@
+#ecoding
+#charset UTF-8
+
+	Funcionalidade: Cadastrar_Cliente
+	
+	Como usuário do sistema quero me cadastrar como cliente para ter acesso as funcionalidades de cliente.
+
+	Contexto: Contexto
+		Dados pessoais	|Nome					|CPF			|Nascimento		|Sexo		|
+						|Jõao Vicente da Silva	|005.552.556-55	|28/02/1995		|Masculino	|
+
+
+		Endereço		|CEP			|Estado				|Cidade			|Bairro			|Logradouro				|Numero		|Complemento	|
+						|73366-203		|Distrito Federal	|Brasília		|Planaltina		|Vila Feliz Conj. A 	|14			|Casa 			|
+
+
+		Telefone		|Tipo			|Número			|
+						|Celular		|61 99556-3232	|
+
+
+		Informãções de acesso	|E-mail						|Repita o E-mail			|Senha		|Repita a Senha		|
+								|joao.vicente@gmail.com 	|joao.vicente@gmail.com 	|Joao@30	|Joao@30			|
+
+
+	Cenário: Cadastrar
+		Dado que o usuário acessa a funcionalidade cadastrar cliente
+		Quando ele preenche os campos de cadastro com os dados:
+		Dados pessoais			|Nome					|CPF			|Nascimento		|Sexo		|
+								|Jõao Vicente da Silva	|005.552.556-55	|28/02/1995		|Masculino	|
+
+		Endereço				|CEP			|Estado				|Cidade			|Bairro			|Logradouro				|Numero		|Complemento	|
+								|73366-203		|Distrito Federal	|Brasília		|Planaltina		|Vila Feliz Conj. A 	|14			|Casa 			|
+
+		Telefone				|Tipo			|Número			|
+								|Celular		|61 99556-3232	|
+
+		Informãções de acesso	|E-mail						|Repita o E-mail			|Senha		|Repita a Senha		|
+								|joao.vicente@gmail.com 	|joao.vicente@gmail.com 	|Joao@30	|Joao@30			|
+		E aciona o botão cadastrar
+		Então o sistema verifica os campos preenchidos
+		E grava os dados do cadastro
+		E apresenta a mensagem "Cadastro efetuado com sucesso!"
+		E e direciona o usuário para a funcionalidade de login.
+
+
+	Cenário: Campos obrigatórios não preenchidos
+		Dado que o usuário acessa a funcionalidade cadastrar cliente
+		Quando ele preenche os campos de cadastro com os dados:
+		Dados pessoais			|Nome					|CPF			|Nascimento	|Sexo		|
+								|						|005.552.556-55	|			|Masculino	|
+
+		Endereço				|CEP			|Estado				|Cidade	|Bairro			|Logradouro				|Numero		|Complemento	|
+								|73366-203		|Distrito Federal	|		|Planaltina		|Vila Feliz Conj. A 	|14			|Casa 			|
+
+		Telefone				|Tipo			|Número			|
+								|Celular		|61 99556-3232	|
+
+		Informãções de acesso	|E-mail						|Repita o E-mail			|Senha		|Repita a Senha		|
+								|joao.vicente@gmail.com 	|joao.vicente@gmail.com 	|Joao@30	|Joao@30			|
+		E aciona o botão cadastrar
+		Então o sistema verifica que existem campos não preenchidos
+		E apresenta a mensagem "Campos obrigatórios não preenchido, favor preencher!"
+
+
+	Cenário: Campo CPF inválido
+		Dado que o usuário acessa a funcionalidade cadastrar cliente
+		Quando ele preenche os campos de cadastro com os dados:
+		Dados pessoais	|Nome					|CPF			|Nascimento		|Sexo		|
+						|Jõao Vicente da Silva	|005.552.000-55	|28/02/1995		|Masculino	|
+
+		Endereço		|CEP			|Estado				|Cidade			|Bairro			|Logradouro				|Numero		|Complemento	|
+						|73366-203		|Distrito Federal	|Brasília		|Planaltina		|Vila Feliz Conj. A 	|14			|Casa 			|
+
+		Telefone		|Tipo			|Número			|
+						|Celular		|61 99556-3232	|
+
+		Informãções de acesso	|E-mail						|Repita o E-mail			|Senha		|Repita a Senha		|
+								|joao.vicente@gmail.com 	|joao.vicente@gmail.com 	|Joao@30	|Joao@30			|
+		
+		E aciona o botão cadastrar
+		Então o sistema verifica que existem o CPF digitado é inválido
+		E apresenta a mensagem "CPF digitado é inválido!"
+
+	Cenário: Campo CPF possui cadastro
+		Dados pessoais	|Nome					|CPF			|Nascimento		|Sexo		|
+						|Jõao Vicente da Silva	|005.552.556-55	|28/02/1995		|Masculino	|
+
+		Endereço		|CEP			|Estado				|Cidade			|Bairro			|Logradouro				|Numero		|Complemento	|
+						|73366-203		|Distrito Federal	|Brasília		|Planaltina		|Vila Feliz Conj. A 	|14			|Casa 			|
+
+		Telefone		|Tipo			|Número			|
+						|Celular		|61 99556-3232	|
+
+		Informãções de acesso	|E-mail						|Repita o E-mail			|Senha		|Repita a Senha		|
+								|joao.vicente@gmail.com 	|joao.vicente@gmail.com 	|Joao@30	|Joao@30			|
+
+		E aciona o botão cadastrar
+		Então o sistema verifica que o CPF digitado possui cadastro
+		E apresenta a mensagem "CPF digitado possui cadastro!"
+
+	Cenário: Campo CEP inválido
+		Dados pessoais	|Nome					|CPF			|Nascimento		|Sexo		|
+						|Jõao Vicente da Silva	|005.552.556-55	|28/02/1995		|Masculino	|
+
+		Endereço		|CEP			|Estado				|Cidade			|Bairro			|Logradouro				|Numero		|Complemento	|
+						|73366-000		|Distrito Federal	|Brasília		|Planaltina		|Vila Feliz Conj. A 	|14			|Casa 			|
+
+		Telefone		|Tipo			|Número			|
+						|Celular		|61 99556-3232	|
+
+		Informãções de acesso	|E-mail						|Repita o E-mail			|Senha		|Repita a Senha		|
+								|joao.vicente@gmail.com 	|joao.vicente@gmail.com 	|Joao@30	|Joao@30			|
+
+		E aciona o botão cadastrar
+		Então o sistema verifica que o CEP digitado é inválido
+		E apresenta a mensagem "CEP digitado é inválido!"
+
+	Cenário: Campo E-mail inválido
+		Dados pessoais	|Nome					|CPF			|Nascimento		|Sexo		|
+						|Jõao Vicente da Silva	|005.552.556-55	|28/02/1995		|Masculino	|
+
+		Endereço		|CEP			|Estado				|Cidade			|Bairro			|Logradouro				|Numero		|Complemento	|
+						|73366-203		|Distrito Federal	|Brasília		|Planaltina		|Vila Feliz Conj. A 	|14			|Casa 			|
+
+		Telefone		|Tipo			|Número			|
+						|Celular		|61 99556-3232	|
+
+		Informãções de acesso	|E-mail						|Repita o E-mail			|Senha		|Repita a Senha		|
+								|joao.vicente@l.com 		|joao.vicente@gmail.com 	|Joao@30	|Joao@30			|
+
+		E aciona o botão cadastrar
+		Então o sistema verifica que o o e-mail digitado é inválido
+		E apresenta a mensagem "E-mail digitado é inválido!"
+
+	Cenário: Campo E-mail possui cadastro
+		Dados pessoais	|Nome					|CPF			|Nascimento		|Sexo		|
+						|Jõao Vicente da Silva	|005.552.556-55	|28/02/1995		|Masculino	|
+
+		Endereço		|CEP			|Estado				|Cidade			|Bairro			|Logradouro				|Numero		|Complemento	|
+						|73366-203		|Distrito Federal	|Brasília		|Planaltina		|Vila Feliz Conj. A 	|14			|Casa 			|
+
+		Telefone		|Tipo			|Número			|
+						|Celular		|61 99556-3232	|
+
+		Informãções de acesso	|E-mail						|Repita o E-mail			|Senha		|Repita a Senha		|
+								|joao.vicente@gmail.com 	|joao.vicente@gmail.com 	|Joao@30	|Joao@30			|
+
+		E aciona o botão cadastrar
+		Então o sistema verifica que o e-mail digitado possui cadastro
+		E apresenta a mensagem "E-mail digitado possui cadastro!"
+
+
+	Cenário: Campo Repita o E-mail diferente do campo E-mail
+		Dados pessoais	|Nome					|CPF			|Nascimento		|Sexo		|
+						|Jõao Vicente da Silva	|005.552.556-55	|28/02/1995		|Masculino	|
+
+		Endereço		|CEP			|Estado				|Cidade			|Bairro			|Logradouro				|Numero		|Complemento	|
+						|73366-203		|Distrito Federal	|Brasília		|Planaltina		|Vila Feliz Conj. A 	|14			|Casa 			|
+
+		Telefone		|Tipo			|Número			|
+						|Celular		|61 99556-3232	|
+
+		Informãções de acesso	|E-mail						|Repita o E-mail			|Senha		|Repita a Senha		|
+								|joao.vicente@gmail.com 	|joao.vinte@gmail.com 		|Joao@30	|Joao@30			|
+
+		E aciona o botão cadastrar
+		Então o sistema verifica que o campo Repita o E-mail não coincide com o campo E-mail
+		E apresenta a mensagem "O preenchimento dos e-mails devem ser idênticos!"
+
+	Cenário: Campo Repita a Senha diferente do campo Senha
+		Dados pessoais	|Nome					|CPF			|Nascimento		|Sexo		|
+						|Jõao Vicente da Silva	|005.552.556-55	|28/02/1995		|Masculino	|
+
+		Endereço		|CEP			|Estado				|Cidade			|Bairro			|Logradouro				|Numero		|Complemento	|
+						|73366-203		|Distrito Federal	|Brasília		|Planaltina		|Vila Feliz Conj. A 	|14			|Casa 			|
+
+		Telefone		|Tipo			|Número			|
+						|Celular		|61 99556-3232	|
+
+		Informãções de acesso	|E-mail						|Repita o E-mail			|Senha		|Repita a Senha	|
+								|joao.vicente@gmail.com 	|joao.vicente@gmail.com 	|Joao@30	|Joao3			|
+
+		E aciona o botão cadastrar
+		Então o sistema verifica que o campo Repita a Senha não coincide com o campo Senha
+		E apresenta a mensagem "O preenchimento das senhas devem ser idênticas!"
+
+	Cenário: Usuário aciona botão Cancelar sem campos preenchidos
+		Dado que o usuário acessa a funcionalidade Cadastrar Cliente
+		Quando o usuário aciona o botão Cancelar
+		Então o sistema redireciona para a funcionalidade de login.
+
+	Esquema de Cenário: Usuário aciona botão Cancelar com campos preenchidos
+		Dado que o usuário acessa a funcionalidade Cadastrar Cliente
+		Quando o usuário aciona o botão Cancelar
+		Então o sistema apresenta a mensagem "Existem campos preenchidos, deseja realmente cancelar? Sim/Não"
+			|Opção do Usuário	|Ação do sistema									|
+			|Sim 				|Sistema redireciona para a funcionalidade de login	|
+			|Não 				|Fecha a mensagem e permite continuidade do cadastro|

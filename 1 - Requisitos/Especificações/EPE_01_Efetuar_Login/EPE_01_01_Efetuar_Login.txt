@@ -1,0 +1,38 @@
+#language: pt
+#ecoding: utf-8
+
+Funcionalidade: Efetuar login
+
+	Como usuário do sistema quero efetuar login para acessar as funcionalidades do sistema
+
+	Contexto: Contexto
+		Dado que o usuário para o login preencha os campos com os seguintes dados:
+			|Login	|Senha		|Situação do preenchimento	|
+			|admin  |1234567	|Dados corretos			  	|
+			|adm 	|1234567	|Usuário inexistente	  	|
+			|admin	|123		|Senha inválida			  	|
+		
+	
+	Cenário: Efetuar login
+		Dado que o usuário acessou a tela de login
+		Quando o usuário preencher o campo Login
+		E preencher o campo Senha
+		E selecionar a opção Entrar
+		Então o sistema efetua o login
+		E direciona o usuário para página inicial do sistema
+		
+	Cenário: Usuário inválido
+		Dado que o usuário acessou a tela de login
+		Quando o usuário preencher o campo Login
+		E preencher o campo Senha
+		E selecionar a opção Entrar
+		Então o sistema verifica que o usuário não existe
+		E exibe a mensagem "Usuário inválido"
+		
+	Cenário: Senha inválida
+		Dado que o usuário acessou a tela de login
+		Quando o usuário preencher o campo Login
+		E preencher o campo Senha
+		E selecionar a opção Entrar
+		Então o sistema verifica que a senha não corresponde ao login preenchido
+		E exibe a mensagem "Senha incorreta"
